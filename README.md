@@ -7,6 +7,8 @@ Tools used:
 - [classgraph](https://github.com/classgraph)
 - [Java-Markdown-Generator](https://github.com/Steppschuh/Java-Markdown-Generator)
 
+## Example of execution
+
 DTO information
 ===============
 
