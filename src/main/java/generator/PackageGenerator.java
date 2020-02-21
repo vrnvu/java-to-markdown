@@ -6,6 +6,9 @@ import io.github.classgraph.ScanResult;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PackageGenerator {
 
     private final StringBuilder packageBuilder;
@@ -19,21 +22,52 @@ public class PackageGenerator {
     public void run() {
         try (var scanResult = getScan(packageName)) {
             for (var allClass : scanResult.getAllClasses()) {
-                addTableName(allClass.getName());
+                addTableNameToPackage(allClass.getName());
 
-                var tableBuilder = new Table.Builder().addRow(
-                        "Filed type",
-                        "Field name",
-                        "Description"
-                );
+                Table.Builder tableInfo = new Table.Builder();
+                addTableHeader(tableInfo);
 
                 for (var fieldInfo : allClass.getFieldInfo()) {
-                    addTableInfo(tableBuilder, fieldInfo);
+                    var type = getType(fieldInfo);
+
+                    var name = getName(fieldInfo);
+
+                    var annotations = getAnnotations(fieldInfo);
+
+                    addTableInfo(tableInfo, type, name, annotations);
                 }
 
-                addTable(tableBuilder.build());
+                addTableToPackage(tableInfo.build());
             }
         }
+    }
+
+    private Table.Builder addTableHeader(Table.Builder tableInfo) {
+        return tableInfo.addRow(
+                "Filed type",
+                "Field name",
+                "Description"
+        );
+    }
+
+    private String getName(FieldInfo fieldInfo) {
+        return fieldInfo.getName();
+    }
+
+    private String getType(FieldInfo fieldInfo) {
+        return fieldInfo.getTypeSignatureOrTypeDescriptor()
+                .toStringWithSimpleNames()
+                .replace("<", "\\<");
+    }
+
+    private List<String> getAnnotations(FieldInfo fieldInfo) {
+        var annotationInfo = fieldInfo.getAnnotationInfo("generator.Description");
+
+        var description = (annotationInfo == null)
+                ? ""
+                : annotationInfo.getParameterValues().getValue("description").toString();
+
+        return List.of(description);
     }
 
     public String build() {
@@ -49,30 +83,22 @@ public class PackageGenerator {
                 .scan();
     }
 
-    private void addTableInfo(Table.Builder tableBuilder, FieldInfo fieldInfo) {
-        var type = fieldInfo.getTypeSignatureOrTypeDescriptor()
-                .toStringWithSimpleNames()
-                .replace("<", "\\<");
-
-        var name = fieldInfo.getName();
-
-        var annotationInfo = fieldInfo.getAnnotationInfo("generator.Description");
-
-        var description = (annotationInfo == null)
-                ? ""
-                : annotationInfo.getParameterValues().getValue("description").toString();
-
-        tableBuilder.addRow(type, name, description);
+    private void addTableInfo(Table.Builder tableBuilder, String type, String name, List<String> annotations) {
+        var elements = new ArrayList<String>();
+        elements.add(type);
+        elements.add(name);
+        elements.addAll(annotations);
+        tableBuilder.addRow(elements.toArray(Object[]::new));
     }
 
 
-    private void addTable(Table table) {
+    private void addTableToPackage(Table table) {
         packageBuilder.append(table);
         newLine();
         newLine();
     }
 
-    private void addTableName(String name) {
+    private void addTableNameToPackage(String name) {
         packageBuilder.append(new Heading(name, 2));
         newLine();
         newLine();

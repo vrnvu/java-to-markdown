@@ -77,12 +77,13 @@ public class MarkdownGenerator {
 
 
     public static void main(String[] args) {
-        var markdownGenerator = new MarkdownGenerator.Builder().with(builder -> {
-                    builder.packages = List.of("dtos1", "dtos2");
-                    builder.outputPath = "doc.md";
-                    builder.header = "DTO information";
-                }
-        ).createMarkdownGenerator();
+        var markdownGenerator = new MarkdownGenerator.Builder()
+                .with(builder -> {
+                            builder.packages = List.of("dtos1", "dtos2");
+                            builder.outputPath = "doc.md";
+                            builder.header = "DTO information";
+                        }
+                ).createMarkdownGenerator();
 
         markdownGenerator.run();
     }
