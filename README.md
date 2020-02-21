@@ -12,7 +12,7 @@ dtos.Child
 | ----------------------- | ------------- | ------------------------------------ |
 | String                  | id            | Id                                   |
 | String                  | description   | Description of this child            |
-| Map<String, ChildChild> | childChildMap | Map of strings to ChildChild objects |
+| Map\<String, ChildChild> | childChildMap | Map of strings to ChildChild objects |
 
 dtos.ChildChild
 ---------------
@@ -29,4 +29,4 @@ dtos.Parent
 | ----------- | ---------- | -------------------------------------------------- |
 | String      | id         | Id                                                 |
 | int         | quantity   | Number of children                                 |
-| List<Child> | children   | List of children, each child has extra information |
+| List\<Child> | children   | List of children, each child has extra information |
