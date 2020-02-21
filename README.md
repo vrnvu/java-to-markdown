@@ -12,36 +12,46 @@ Tools used:
 DTO information
 ===============
 
-dtos2.Child
-----------
+---
+dtos1.Child2
+------------
 
-| Filed type                      | Field name    | Description                                  |
-| ------------------------------- | ------------- | -------------------------------------------- |
-| String                          | id            | Id                                           |
-| String                          | description   | Description of this child                    |
-| Map\<String, List\<ChildChild>> | childChildMap | Map of strings to list of ChildChild objects |
+>A description to a class
 
-dtos2.ChildChild
----------------
+| Filed type                       | Field name    | Description                                  |
+| -------------------------------- | ------------- | -------------------------------------------- |
+| String                           | id            | Id                                           |
+| String                           | description   | Description of this child                    |
+| Map\<String, List\<ChildChild2>> | childChildMap | Map of strings to list of ChildChild objects |
+
+dtos1.ChildChild2
+-----------------
+
+>A description to a class
 
 | Filed type | Field name | Description             |
 | ---------- | ---------- | ----------------------- |
 | String     | id         | Id                      |
-| Child      | child      | Reference back to Child |
+| Child2     | child2     | Reference back to Child |
 
-dtos2.Parent
------------
+dtos1.Parent2
+-------------
 
-| Filed type   | Field name | Description                                        |
-| ------------ | ---------- | -------------------------------------------------- |
-| String       | id         | Id                                                 |
-| int          | quantity   | Number of children                                 |
-| List\<Child> | children   | List of children, each child has extra information |
+>A description to a class
 
-dtos2.nested.EdgeCase
---------------------
+| Filed type    | Field name | Description                                        |
+| ------------- | ---------- | -------------------------------------------------- |
+| String        | id         | Id                                                 |
+| int           | quantity   | Number of children                                 |
+| List\<Child2> | child2s    | List of children, each child has extra information |
+
+dtos1.nested.EdgeCase2
+----------------------
+
+>A description to a class
 
 | Filed type | Field name | Description   |
 | ---------- | ---------- | ------------- |
 | String     | id         | Identificator |
 
+---
