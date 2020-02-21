@@ -1,5 +1,6 @@
 package generator;
 
+import net.steppschuh.markdowngenerator.rule.HorizontalRule;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import java.io.IOException;
@@ -48,12 +49,18 @@ public class MarkdownGenerator {
         addTitle();
 
         for (var packageName : packages) {
+            addRule();
             var packageGenerator = new PackageGenerator(packageName);
             packageGenerator.run();
             add(packageGenerator.build());
         }
 
         writeToFile();
+    }
+
+    private void addRule() {
+        documentBuilder.append(new HorizontalRule());
+        documentBuilder.append("\n");
     }
 
 

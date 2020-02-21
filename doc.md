@@ -1,6 +1,7 @@
 DTO information
 ===============
 
+---
 dtos1.Child2
 ------------
 
@@ -42,6 +43,7 @@ dtos1.nested.EdgeCase2
 | ---------- | ---------- | ------------- |
 | String     | id         | Identificator |
 
+---
 dtos2.Child
 -----------
 
