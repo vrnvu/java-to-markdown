@@ -1,4 +1,4 @@
-# java-to-markdown
+# automatic-doc-generator
 
 > metaprogramming to generate markdowns of dtos2 objects
 
