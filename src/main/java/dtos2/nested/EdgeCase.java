@@ -1,4 +1,4 @@
-package dtos.nested;
+package dtos2.nested;
 
 import generator.Description;
 

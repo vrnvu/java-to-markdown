@@ -1,6 +1,6 @@
 # java-to-markdown
 
-> metaprogramming to generate markdowns of dtos objects
+> metaprogramming to generate markdowns of dtos2 objects
 
 
 Tools used:
@@ -12,7 +12,7 @@ Tools used:
 DTO information
 ===============
 
-dtos.Child
+dtos2.Child
 ----------
 
 | Filed type                      | Field name    | Description                                  |
@@ -21,7 +21,7 @@ dtos.Child
 | String                          | description   | Description of this child                    |
 | Map\<String, List\<ChildChild>> | childChildMap | Map of strings to list of ChildChild objects |
 
-dtos.ChildChild
+dtos2.ChildChild
 ---------------
 
 | Filed type | Field name | Description             |
@@ -29,7 +29,7 @@ dtos.ChildChild
 | String     | id         | Id                      |
 | Child      | child      | Reference back to Child |
 
-dtos.Parent
+dtos2.Parent
 -----------
 
 | Filed type   | Field name | Description                                        |
@@ -38,7 +38,7 @@ dtos.Parent
 | int          | quantity   | Number of children                                 |
 | List\<Child> | children   | List of children, each child has extra information |
 
-dtos.nested.EdgeCase
+dtos2.nested.EdgeCase
 --------------------
 
 | Filed type | Field name | Description   |

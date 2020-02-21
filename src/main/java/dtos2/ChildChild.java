@@ -1,4 +1,4 @@
-package dtos;
+package dtos2;
 
 import generator.Description;
 
