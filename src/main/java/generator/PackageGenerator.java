@@ -1,9 +1,11 @@
 package generator;
 
 import io.github.classgraph.ClassGraph;
+import io.github.classgraph.ClassInfo;
 import io.github.classgraph.FieldInfo;
 import io.github.classgraph.ScanResult;
 import net.steppschuh.markdowngenerator.table.Table;
+import net.steppschuh.markdowngenerator.text.Text;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ public class PackageGenerator {
         try (var scanResult = getScan(packageName)) {
             for (var allClass : scanResult.getAllClasses()) {
                 addTableNameToPackage(allClass.getName());
+                addTableDescriptionToPackage(allClass);
 
                 Table.Builder tableInfo = new Table.Builder();
                 addTableHeader(tableInfo);
@@ -40,6 +43,18 @@ public class PackageGenerator {
                 addTableToPackage(tableInfo.build());
             }
         }
+    }
+
+    private void addTableDescriptionToPackage(ClassInfo allClass) {
+        var annotationInfo = allClass.getAnnotationInfo("generator.Description");
+
+        var description = (annotationInfo == null)
+                ? ""
+                : annotationInfo.getParameterValues().getValue("description").toString();
+
+        packageBuilder.append(new Text(">" + description));
+        newLine();
+        newLine();
     }
 
     private Table.Builder addTableHeader(Table.Builder tableInfo) {

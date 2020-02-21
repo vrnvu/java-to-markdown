@@ -5,6 +5,7 @@ import generator.Description;
 import java.util.List;
 import java.util.Map;
 
+@Description(description = "A description to a class")
 public class Child {
     @Description(description = "Id")
     public String id;

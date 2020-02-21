@@ -4,6 +4,8 @@ DTO information
 dtos1.Child2
 ------------
 
+>A description to a class
+
 | Filed type                       | Field name    | Description                                  |
 | -------------------------------- | ------------- | -------------------------------------------- |
 | String                           | id            | Id                                           |
@@ -13,6 +15,8 @@ dtos1.Child2
 dtos1.ChildChild2
 -----------------
 
+>A description to a class
+
 | Filed type | Field name | Description             |
 | ---------- | ---------- | ----------------------- |
 | String     | id         | Id                      |
@@ -20,6 +24,8 @@ dtos1.ChildChild2
 
 dtos1.Parent2
 -------------
+
+>A description to a class
 
 | Filed type    | Field name | Description                                        |
 | ------------- | ---------- | -------------------------------------------------- |
@@ -30,12 +36,16 @@ dtos1.Parent2
 dtos1.nested.EdgeCase2
 ----------------------
 
+>A description to a class
+
 | Filed type | Field name | Description   |
 | ---------- | ---------- | ------------- |
 | String     | id         | Identificator |
 
 dtos2.Child
 -----------
+
+>A description to a class
 
 | Filed type                      | Field name    | Description                                  |
 | ------------------------------- | ------------- | -------------------------------------------- |
@@ -46,6 +56,8 @@ dtos2.Child
 dtos2.ChildChild
 ----------------
 
+>A description to a class
+
 | Filed type | Field name | Description             |
 | ---------- | ---------- | ----------------------- |
 | String     | id         | Id                      |
@@ -53,6 +65,8 @@ dtos2.ChildChild
 
 dtos2.Parent
 ------------
+
+>A description to a class
 
 | Filed type   | Field name | Description                                        |
 | ------------ | ---------- | -------------------------------------------------- |
@@ -62,6 +76,8 @@ dtos2.Parent
 
 dtos2.nested.EdgeCase
 ---------------------
+
+>A description to a class
 
 | Filed type | Field name | Description   |
 | ---------- | ---------- | ------------- |

@@ -4,6 +4,7 @@ import generator.Description;
 
 import java.util.List;
 
+@Description(description = "A description to a class")
 public class Parent2 {
     @Description(description = "Id")
     public String id;
