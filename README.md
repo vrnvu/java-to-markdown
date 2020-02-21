@@ -1,8 +1,7 @@
 # java-to-markdown
 
-```
-metaprogramming to generate markdowns of dtos objects
-```
+> metaprogramming to generate markdowns of dtos objects
+
 
 Tools used:
 - [classgraph](https://github.com/classgraph)
