@@ -30,7 +30,3 @@ dtos.Parent
 | String      | id         | Id                                                 |
 | int         | quantity   | Number of children                                 |
 | List<Child> | children   | List of children, each child has extra information |
-
-
-
-Process finished with exit code 0
